@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="whatsapp_button" name="Whatsapp Button" inherit_id="website.theme">
+        <xpath expr="." position="inside">
+        <link rel="stylesheet" href="/website_whatsapp/static/src/css/whatsapp.css"/>
+        </xpath>
+    </template>
+</odoo>
