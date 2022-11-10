@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_message" inherit_id="website.layout" name="Whatsapp Button">
+        <xpath expr="//div[@id='wrapwrap']/main" position="before">
+            <t t-if="website.enable_whatsapp == True">
+                <div id="clbh_phone_div" class="phone-call cbh-phone cbh-green cbh-show  cbh-static" style="position: fixed; bottom: -30px; left: -35px; z-index: 80;">
+                    <a id="WhatsApp-button" t-attf-href="https://wa.me/#{website.phone}" target="_blank" title="Send Message!" rel="noopener noreferrer" class="phoneJs">
+                        <div class="cbh-ph-circle"></div>
+                        <div class="cbh-ph-circle-fill"></div>
+                        <div class="cbh-ph-img-circle1"></div>
+                    </a>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>
