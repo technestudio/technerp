@@ -1,0 +1,9 @@
+.ref {
+    &.o_input, .o_input {
+        border-bottom: 1px solid #091124;
+    }
+
+    &:focus, &:active {
+        border-bottom: 1px solid #137176;
+    }
+}

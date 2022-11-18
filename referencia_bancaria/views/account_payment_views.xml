@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="view_account_payment_form_inherit_payment" model="ir.ui.view">
+            <field name="name">account.payment.form.referencia</field>
+            <field name="name">account.payment.form.is_bank_selected</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field name="is_bank_selected" invisible="1"/>
+                    <field class="ref" name="referencia" attrs="{'invisible':[('is_bank_selected', '!=', True)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_payment_tree" model="ir.ui.view">
+            <field name="name">account.payment.tree.referencia</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_id']" position="after">
+                    <field class="ref" name="referencia"/>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

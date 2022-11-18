@@ -1,0 +1,14 @@
+<odoo>
+    <record id="view_account_payment_register_form_inherit_payment" model="ir.ui.view">
+        <field name="name">account.payment.register.form.referencia</field>
+        <field name="name">account.payment.register.form.is_bank_selected</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+        <field name="arch" type="xml">
+            <field name="communication" position="after">
+                <field name="is_bank_selected" invisible="1"/>
+                <field class="ref" name="referencia" attrs="{'invisible':[('is_bank_selected', '!=', True)]}"/>
+            </field>
+        </field>
+    </record>
+</odoo>
