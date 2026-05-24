@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tsc_account_payment_form_view">
+            <field name="name">tsc.account.payment.form.inherit</field>
+            <field name="model">account.payment</field> 
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_open_journal_entry']" position="after">  
+                    <field name="tsc_itf_move_id" invisible="True"/>
+                    <button name="tsc_button_itf_journal" type="object" 
+                        class="oe_stat_button" icon="fa-bars"
+                        groups="account.group_account_user,account.group_account_readonly"
+                        invisible="not tsc_itf_move_id">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">ITF Journal Entry</span>
+                        </div>
+                    </button>
+                </xpath> 
+                
+            </field>
+        </record>   
+    </data>
+</odoo>

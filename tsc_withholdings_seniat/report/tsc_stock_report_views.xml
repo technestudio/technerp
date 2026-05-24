@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="tsc_action_dispatch_note" model="ir.actions.report">
+        <field name="name">Dispatch guide</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.report_dispatch_note</field>
+        <field name="report_file">tsc_withholdings_seniat.report_dispatch_note</field>
+        <field name="print_report_name">'Dispatch guide - %s - %s' % (object.partner_id.name or '', object.name)</field>
+        <field name="binding_model_id" ref="model_stock_picking"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+     <record id="tsc_action_free_form_dispatch_note" model="ir.actions.report">
+        <field name="name">Free form dispatch guide</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.report_dispatch_note_free_form</field>
+        <field name="report_file">tsc_withholdings_seniat.report_dispatch_note_free_form</field>
+        <field name="print_report_name">'Dispatch guide - %s - %s' % (object.partner_id.name or '', object.name)</field>
+        <field name="binding_model_id" ref="model_stock_picking"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <record id="tsc_action_dispatch_dev_guide" model="ir.actions.report">
+        <field name="name">DEV. Dispatch guide</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.report_dispatch_dev_guide</field>
+        <field name="report_file">tsc_withholdings_seniat.report_dispatch_dev_guide</field>
+        <field name="print_report_name">'Dispatch guide return - %s - %s' % (object.partner_id.name or '', object.name)</field>
+        <field name="binding_model_id" ref="model_stock_picking"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <record id="tsc_action_free_form_dispatch_dev_guide" model="ir.actions.report">
+        <field name="name">DEV. Free form dispatch guide</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.report_dispatch_dev_guide_free_form</field>
+        <field name="report_file">tsc_withholdings_seniat.report_dispatch_dev_guide_free_form</field>
+        <field name="print_report_name">'Dispatch guide return - %s - %s' % (object.partner_id.name or '', object.name)</field>
+        <field name="binding_model_id" ref="model_stock_picking"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    
+
+</odoo>

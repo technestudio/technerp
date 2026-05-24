@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tsc_account_payment_form_view">
+            <field name="name">tsc.account.payment.form.inherit</field>
+            <field name="model">account.payment</field> 
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='group1']" position="inside">  
+
+                    <field name="tsc_with_igtf" readonly="True" 
+                        invisible="not tsc_currency_id_apply_IGTF or not ((payment_type == 'inbound' and partner_type == 'customer') or (payment_type == 'outbound' and partner_type == 'supplier'))"/>
+                    
+                    <field name="tsc_igtf_payment_journal" required="tsc_with_igtf"
+                        invisible="not tsc_currency_id_apply_IGTF or not ((payment_type == 'inbound' and partner_type == 'customer') or (payment_type == 'outbound' and partner_type == 'supplier'))"
+                        options="{'no_create': True, 'no_open': True, 'no_create_edit': True, 'no_quick_create': True}"/>
+
+                    <label for="tsc_igtf_payment_amount" invisible="not tsc_currency_id_apply_IGTF or not ((payment_type == 'inbound' and partner_type == 'customer') or (payment_type == 'outbound' and partner_type == 'supplier'))"/>
+                    <div name="tsc_igtf_payment_amount_div" class="o_row" invisible="not tsc_currency_id_apply_IGTF  or not ((payment_type == 'inbound' and partner_type == 'customer') or (payment_type == 'outbound' and partner_type == 'supplier'))">
+                        <field name="tsc_igtf_payment_amount"/>
+                        <field name="tsc_igtf_payment_amount_journal_currency" 
+                            invisible="not tsc_show_igtf_currency" class="oe_inline"/>
+                    </div>
+
+                    <label for="tsc_amount_with_igtf" invisible="not tsc_currency_id_apply_IGTF or not ((payment_type == 'inbound' and partner_type == 'customer') or (payment_type == 'outbound' and partner_type == 'supplier'))"/>
+                    <div name="tsc_amount_with_igtf_div" class="o_row" invisible="not tsc_currency_id_apply_IGTF or not ((payment_type == 'inbound' and partner_type == 'customer') or (payment_type == 'outbound' and partner_type == 'supplier'))">
+                        <field name="tsc_amount_with_igtf"/>
+                        <field name="tsc_amount_with_igtf_journal_currency" invisible="not tsc_show_igtf_currency" class="oe_inline"/>
+                    </div>
+
+                    <field name="tsc_igtf_move_id" invisible="True"/>
+                    <field name="tsc_currency_id_apply_IGTF" invisible="True"/>
+                    <field name="tsc_igtf_payment_journal_currency" invisible="True"/>
+                    <field name="tsc_show_igtf_currency" invisible="True"/>
+                </xpath>
+
+                <xpath expr="//button[@name='mark_as_sent']" position="after">  
+                    <button name="tsc_activate_igtf" string="Include IGTF" type="object" data-hotkey="q"
+                        invisible="tsc_with_igtf or not tsc_currency_id_apply_IGTF or not ((payment_type == 'inbound' and partner_type == 'customer') or (payment_type == 'outbound' and partner_type == 'supplier'))"/>
+                    <button name="tsc_deactivate_igtf" string="Remove IGTF" type="object" data-hotkey="q"
+                        invisible="not tsc_with_igtf or not tsc_currency_id_apply_IGTF or not ((payment_type == 'inbound' and partner_type == 'customer') or (payment_type == 'outbound' and partner_type == 'supplier'))"/>
+                </xpath>                 
+                
+                <xpath expr="//button[@name='button_open_journal_entry']" position="after">  
+                    <button name="tsc_button_igtf_journal" type="object" 
+                        class="oe_stat_button" icon="fa-bars"
+                        groups="account.group_account_user,account.group_account_readonly" 
+                        invisible="not tsc_igtf_move_id or not tsc_with_igtf">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">IGTF Journal Entry</span>
+                        </div>
+                    </button>
+                </xpath> 
+                
+            </field>
+        </record>   
+    </data>
+</odoo>
+

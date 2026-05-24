@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tsc_account_payment_register_form_view">
+            <field name="name">tsc.account.payment.register.form.inherit</field>
+            <field name="model">account.payment.register</field> 
+            <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='group2']" position="inside">    
+                    <field name="tsc_currency_id_apply_IGTF" invisible="1"/>
+                    <field name="tsc_with_igtf" invisible="not tsc_currency_id_apply_IGTF"/>
+                    <field name="tsc_igtf_payment_journal" invisible="not tsc_currency_id_apply_IGTF"
+                        required="tsc_with_igtf" options="{'no_create': True, 'no_open': True, 'no_create_edit': True, 'no_quick_create': True}"/>
+                    <field name="tsc_igtf_payment_amount" invisible="not tsc_currency_id_apply_IGTF"/>
+                    <field name="tsc_amount_with_igtf" invisible="not tsc_currency_id_apply_IGTF"/>
+                </xpath>
+            </field>
+        </record>   
+    </data>
+</odoo>
+

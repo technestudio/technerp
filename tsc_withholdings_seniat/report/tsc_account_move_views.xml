@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="tsc_action_invoice_bs" model="ir.actions.report">
+        <field name="name">Invoice Bs</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.tsc_factura_bs</field>
+        <field name="report_file">tsc_withholdings_seniat.tsc_factura_bs</field>
+        <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <record id="tsc_action_invoice_bs_no_payments" model="ir.actions.report">
+        <field name="name">Bs invoice without payment</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.tsc_factura_bs_sin_pagos</field>
+        <field name="report_file">tsc_withholdings_seniat.tsc_factura_bs_sin_pagos</field>
+        <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <record id="tsc_action_invoice_bs_fl" model="ir.actions.report">
+        <field name="name">Invoice Bs f/l</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.tsc_factura_bs_fl</field>
+        <field name="report_file">tsc_withholdings_seniat.tsc_factura_bs_fl</field>
+        <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <record id="tsc_action_invoice_bs_fl_no_payments" model="ir.actions.report">
+        <field name="name">Bs f/l invoice without payment</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.tsc_factura_bs_fl_sin_pagos</field>
+        <field name="report_file">tsc_withholdings_seniat.tsc_factura_bs_fl_sin_pagos</field>
+        <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+    <record id="tsc_action_invoice_with_rate" model="ir.actions.report">
+        <field name="name">Invoice with rate</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.tsc_factura_con_tasa</field>
+        <field name="report_file">tsc_withholdings_seniat.tsc_factura_con_tasa</field>
+        <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+
+    <record id="tsc_action_invoice_with_rate_no_payments" model="ir.actions.report">
+        <field name="name">Invoice with fee without payment</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.tsc_factura_con_tasa_sin_pagos</field>
+        <field name="report_file">tsc_withholdings_seniat.tsc_factura_con_tasa_sin_pagos</field>
+        <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+
+    <record id="tsc_action_invoice_with_rate_fl" model="ir.actions.report">
+        <field name="name">Invoice with f/l rate</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.tsc_factura_con_tasa_fl</field>
+        <field name="report_file">tsc_withholdings_seniat.tsc_factura_con_tasa_fl</field>
+        <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+     <record id="tsc_action_invoice_with_rate_fl_no_payments" model="ir.actions.report">
+        <field name="name">Invoice with f/l rate without payment</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tsc_withholdings_seniat.tsc_factura_con_tasa_fl_sin_pagos</field>
+        <field name="report_file">tsc_withholdings_seniat.tsc_factura_con_tasa_fl_sin_pagos</field>
+        <field name="print_report_name">(object._get_report_base_filename())</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="base.paperformat_euro"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tsc_account_move_itf_button_form_view">
+            <field name="name">tsc.account.payment.itf.button</field>
+            <field name="model">account.move</field> 
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='action_open_business_doc']" position="after">  
+                    <field name="tsc_itf_move_id" invisible="True"/>
+                    <button name="tsc_button_itf_journal" type="object" 
+                        class="oe_stat_button" icon="fa-bars"
+                        groups="account.group_account_user,account.group_account_readonly" 
+                        invisible="not tsc_itf_move_id">
+                        <div class="o_stat_info">
+                            <span class="o_stat_text">ITF Journal Entry</span>
+                        </div>
+                    </button>
+                </xpath> 
+                
+            </field>
+        </record>   
+    </data>
+</odoo>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="tsc_currency_form_view">
+            <field name="name">tsc.res.currency.form.inherit</field>
+            <field name="model">res.currency</field> 
+            <field name="inherit_id" ref="base.view_currency_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="tsc_apply_IGTF" readonly="not active"/>
+                </xpath>
+            </field>
+        </record>   
+
+    </data>
+</odoo>
+

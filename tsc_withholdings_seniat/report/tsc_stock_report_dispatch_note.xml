@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="tsc_report_dispatch_content">
+        <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang or o.env.lang)" />
+        <t t-set="partner" t-value="o.partner_id or (o.move_ids and o.move_ids[0].picking_id.partner_id) or False"/>
+        <style>
+            .page {
+                font-size: 11px!important;
+            }
+            .mt-10 {
+                margin-top: 10px;
+            }
+        </style>
+        <div class="page">
+            <!-- RIF-->
+            <div class="row" t-if="not is_free_form">
+                <div class="col text-start">
+                    <p><strong>RIF: </strong><span t-field="o.company_id.vat"/></p>
+                </div>
+            </div>
+
+            <!-- TITULO DEL DOCUMENTO -->
+            <div class="text-center">
+                 <t t-if="not tsc_dev_title">
+                    <strong>DISPATCH GUIDE</strong>
+                </t>
+                <t t-if="tsc_dev_title">
+                    <strong>RETURN DISPATCH GUIDE</strong>
+                </t>
+            </div>
+
+            <!-- DATOS DEL CLIENTE, NUMERO DE CONTROL, FECHAS -->
+            <div class="row">
+                <div class="col-9">
+                    <p class="m-0 p-0"><strong>Send to: </strong><span  t-field="o.partner_id.display_name"/></p>
+                    <p class="m-0 p-0"><strong>RIF: </strong><span t-field="o.partner_id.vat"/></p>
+                    <div>
+                        <span><strong>Delivery address:</strong></span> 
+                        <span class="text-uppercase">
+                            <t t-esc="o.partner_id.street or ''" /> <t t-esc="o.partner_id.city or ''" />,
+                            <br/> 
+                            <t t-esc="o.partner_id.state_id.name or ''" /> 
+                            <t t-esc="o.partner_id.country_id.name or ''" />
+                        </span> 
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div t-if="not is_free_form">
+                        <p class="m-0 p-0"><strong>Control Number:</strong></p>
+                        <p class="m-0 p-0" t-field="o.tsc_control_number_manual" />
+                    </div>
+                    <div>
+                        <p class="m-0 p-0"><strong>Dispatch note no.:</strong></p>
+                        <p class="m-0 p-0" t-field="o.name"/>
+                    </div>
+                     <div t-if="o.date_done">
+                        <p class="m-0 p-0"><strong>Shipping date:</strong></p>
+                        <p class="m-0 p-0" t-esc="o.date_done.strftime('%d/%m/%Y %I.%M.%S %p')"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA, CLEARFIX DE IMPUESTOS-->
+            <table class="table table-sm table-condensed mt-10" name="stock_move_table">
+                <thead>
+                    <tr>
+                        <th name="th_sm_renglon"><strong>Row</strong></th>
+                        <th name="th_sm_descripcion" class="text-start"><strong>Description</strong></th>
+                        <th name="th_sm_cantidad" class="text-start"><strong>Quantity</strong></th>
+                        <th name="th_sm_precio" class="text-start"><strong>Price</strong></th>
+                        <th name="th_sm_monto" class="text-end"><strong>Amount</strong></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-set="line_number" t-value="1"/>
+                    <t t-set="total_monto" t-value="0"/>
+                    <t t-set="lines" t-value="o.move_ids"/>
+
+                    <tr t-foreach="lines" t-as="move">
+
+                        <t t-set="price" t-value="list(o.partner_id.property_product_pricelist._price_get(move.product_id, move.quantity).values())[0]"/>
+
+                        <t t-set="price_uom" t-value="move._adjust_unit_price(price)" />
+
+                        <t t-set="amount" t-value="round(move.quantity * price_uom, 2)"/>
+
+                        <td class="text-center">
+                            <t t-esc="line_number"/>
+                        </td>
+                        <td class="text-start">
+                            <t t-esc="move.product_id.display_name"/>
+                        </td>
+                        <td class="text-start">
+                            <t t-esc="round(move.quantity, 4)"/> <t t-esc="move.product_uom.name"/>
+                        </td>
+                        <td class="text-start">
+                            <t t-esc="round(price_uom, 2)"/>
+                        </td>
+                        <td class="text-end">
+                            <t t-esc="move.company_id.currency_id.symbol"/> <t t-esc="amount"/>
+                        </td>
+
+                        <t t-set="line_number" t-value="line_number + 1"/>
+                        <t t-set="total_monto" t-value="total_monto + amount"/>
+                    </tr>
+
+                </tbody>
+            </table>
+            
+            <div class="clearfix" >
+                <div id="total" class="row" >
+                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ms-auto">
+                         <table class="table table-sm"  style="page-break-inside: avoid;">
+                            <tr>
+                                <td>
+                                    Total shipping amount: 
+                                </td>
+                                <td class="text-end">
+                                    <span t-esc="move.company_id.currency_id.symbol"/>  <span t-esc="round(total_monto, 2)"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Total amount Bs.: 
+                                </td>
+                                <td class="text-end">
+                                    <span t-esc="round(total_monto * o.tsc_exchange_rate_dispatche_note, 2)"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MENSAJE -->
+            <p>Calculated at the Bs/USD exchange rate: <span t-esc="round(o.tsc_exchange_rate_dispatche_note, 2)"/> as established by the BCV</p>
+            <p t-field="o.tsc_reason_transfer"/>
+            <p class="text-center"><strong>No right to tax credit</strong></p>
+            <t t-if="not is_free_form">
+                <p class="text-center"><strong>Not valid as a fiscal document</strong></p>
+            </t>
+        </div>
+
+    </template>
+
+    <template id="report_dispatch_note_document" >
+        <t t-call="web.html_container">
+           <t t-if="is_free_form">
+                <t t-call="web.basic_layout">
+                    <t t-call="tsc_withholdings_seniat.tsc_report_dispatch_content"/>
+                </t>
+            </t>
+             <t t-else="">
+                <t t-call="web.external_layout">
+                    <t t-call="tsc_withholdings_seniat.tsc_report_dispatch_content"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_dispatch_note">
+        <t t-set="is_free_form" t-value="False"/>
+        <t t-set="tsc_dev_title" t-value="False"/>
+        <t t-foreach="docs" t-as="o">
+            <t t-call="tsc_withholdings_seniat.report_dispatch_note_document" t-lang="o.partner_id.lang or o.env.lang"/>
+        </t>
+    </template>
+
+
+    <template id="report_dispatch_note_free_form">
+        <t t-set="is_free_form" t-value="True"/>
+        <t t-set="tsc_dev_title" t-value="False"/>
+        <t t-foreach="docs" t-as="o">
+            <t t-call="tsc_withholdings_seniat.report_dispatch_note_document" t-lang="o.partner_id.lang or o.env.lang"/>
+        </t>
+    </template>
+
+      <template id="report_dispatch_dev_guide">
+        <t t-set="is_free_form" t-value="False"/>
+        <t t-set="tsc_dev_title" t-value="True"/>
+        <t t-foreach="docs" t-as="o">
+            <t t-call="tsc_withholdings_seniat.report_dispatch_note_document" t-lang="o.partner_id.lang or o.env.lang"/>
+        </t>
+    </template>
+
+     <template id="report_dispatch_dev_guide_free_form">
+        <t t-set="is_free_form" t-value="True"/>
+        <t t-set="tsc_dev_title" t-value="True"/>
+        <t t-foreach="docs" t-as="o">
+            <t t-call="tsc_withholdings_seniat.report_dispatch_note_document" t-lang="o.partner_id.lang or o.env.lang"/>
+        </t>
+    </template>
+
+</odoo>

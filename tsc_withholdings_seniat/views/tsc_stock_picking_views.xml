@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="tsc_stock_picking_view_form_inherit" model="ir.ui.view">
+        <field name="name">tsc.stock.picking.view.form.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='backorder_id']" position="after">
+                <field name="tsc_control_number_free_form"/>
+                <field name="tsc_control_number_manual"/> 
+                <field name="tsc_currency_dispatch_note"/>
+                <field name="tsc_exchange_rate_dispatche_note"/>
+            </xpath>
+
+            <xpath expr="//field[@name='owner_id']" position="after">
+                <field name="tsc_reason_transfer" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="tsc_stock_picking_view_tree_inherit" model="ir.ui.view">
+        <field name="name">tsc.stock.picking.view.tree.inherit</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="tsc_control_number_free_form" optional="show" />
+                    <field name="tsc_control_number_manual" optional="show" />
+                </xpath>
+            
+            </data>
+        </field>
+    </record>
+
+</odoo>

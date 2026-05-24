@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="tsc_account_res_config_form_view">
+            <field name="name">tsc.res.config.settings.form.inherit</field>
+            <field name="model">res.config.settings</field> 
+            <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//block[@name='default_taxes_setting_container']/setting[@id='default_taxes']" position="after">
+                    <setting id="default_igtf_text" string="IGTF">
+                        <div class="mt4">
+                            <div class="text-muted mb12">
+                                The indicated text will appear on customer invoices.
+                            </div>
+                            <field name="tsc_igtf_text" class="oe_account_terms mt-2 w-100" placeholder="IGTF text for invoices."/>
+                        </div>
+                        
+                    </setting>
+                </xpath>
+            </field>
+        </record>   
+
+    </data>
+</odoo>
+

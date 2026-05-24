@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="external_layout_standard" inherit_id="web.external_layout_standard" >
+        <!-- support for custom header -->
+        <xpath expr="//*[contains(@class, 'header') or contains(@t-attf-class, 'header')]" position="attributes">
+            <attribute name="t-if">not custom_header</attribute>
+        </xpath>
+        <xpath expr="//*[contains(@class, 'header') or contains(@t-attf-class, 'header')]" position="after">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-if="custom_header">
+                <t t-call="#{custom_header}"/>
+            </div>
+        </xpath>
+
+        <!-- support for custom footer -->
+        <xpath expr="//*[contains(@class, 'footer') or contains(@t-attf-class, 'footer')]" position="attributes">
+            <attribute name="t-if">not custom_footer</attribute>
+        </xpath>
+        <xpath expr="//*[contains(@class, 'footer') or contains(@t-attf-class, 'footer')]" position="after">
+            <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout" t-if="custom_footer">
+                <t t-out="custom_footer"/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="external_layout_bold" inherit_id="web.external_layout_bold" >
+        <!-- support for custom header -->
+        <xpath expr="//*[contains(@class, 'header') or contains(@t-attf-class, 'header')]" position="attributes">
+            <attribute name="t-if">not custom_header</attribute>
+        </xpath>
+        <xpath expr="//*[contains(@class, 'header') or contains(@t-attf-class, 'header')]" position="after">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-if="custom_header">
+                <div class="o_clean_header">
+                    <t t-call="#{custom_header}"/>
+                </div>
+            </div>
+        </xpath>
+
+        <!-- support for custom footer -->
+        <xpath expr="//*[contains(@class, 'footer') or contains(@t-attf-class, 'footer')]" position="attributes">
+            <attribute name="t-if">not custom_footer</attribute>
+        </xpath>
+        <xpath expr="//*[contains(@class, 'footer') or contains(@t-attf-class, 'footer')]" position="after">
+            <div t-attf-class="footer o_clean_footer o_company_#{company.id}_layout" t-if="custom_footer">
+                <t t-out="custom_footer"/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="external_layout_boxed" inherit_id="web.external_layout_boxed" >
+        <!-- support for custom header -->
+        <xpath expr="//*[contains(@class, 'header') or contains(@t-attf-class, 'header')]" position="attributes">
+            <attribute name="t-if">not custom_header</attribute>
+        </xpath>
+        <xpath expr="//*[contains(@class, 'header') or contains(@t-attf-class, 'header')]" position="after">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-if="custom_header">
+                <div class="o_boxed_header">
+                    <t t-call="#{custom_header}"/>
+                </div>
+            </div>
+        </xpath>
+
+        <!-- support for custom footer -->
+        <xpath expr="//*[contains(@class, 'footer') or contains(@t-attf-class, 'footer')]" position="attributes">
+            <attribute name="t-if">not custom_footer</attribute>
+        </xpath>
+        <xpath expr="//*[contains(@class, 'footer') or contains(@t-attf-class, 'footer')]" position="after">
+            <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout" t-if="custom_footer">
+                <t t-out="custom_footer"/>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="external_layout_striped" inherit_id="web.external_layout_striped" >
+        <!-- support for custom header -->
+        <xpath expr="//*[contains(@class, 'header') or contains(@t-attf-class, 'header')]" position="attributes">
+            <attribute name="t-if">not custom_header</attribute>
+        </xpath>
+        <xpath expr="//*[contains(@class, 'header') or contains(@t-attf-class, 'header')]" position="after">
+            <div t-attf-class="o_company_#{company.id}_layout header" t-if="custom_header">
+                <div class="o_background_header">
+                    <t t-call="#{custom_header}"/>
+                </div>
+            </div>
+        </xpath>
+
+        <!-- support for custom footer -->
+        <xpath expr="//*[contains(@class, 'footer') or contains(@t-attf-class, 'footer')]" position="attributes">
+            <attribute name="t-if">not custom_footer</attribute>
+        </xpath>
+        <xpath expr="//*[contains(@class, 'footer') or contains(@t-attf-class, 'footer')]" position="after">
+            <div t-attf-class="o_company_#{company.id}_layout footer o_background_footer" t-if="custom_footer">
+                <t t-out="custom_footer"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

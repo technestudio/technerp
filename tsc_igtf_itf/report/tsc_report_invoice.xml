@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="tsc_report_invoice" inherit_id="account.report_invoice_document">
+            <xpath expr="//div[@name='comment']" position="after">
+
+                <div class="text-muted mb-3" name="tsc_igtf_text">
+                    <span t-esc="o.tsc_config_igtf_text"/>
+                </div>
+                
+            </xpath>
+            <xpath expr="//t[@t-call='account.document_tax_totals']" position="after">
+                <div>
+                    <tr>
+                        <td>IGTF</td>
+                        <td class="text-end">
+                            <span t-field="o.tsc_total_igtf"/>
+                        </td>
+                    </tr>
+                    <tr class="border-black fw-bold">
+                        <td>Total + IGTF</td>
+                        <td class="text-end">
+                            <span t-field="o.tsc_total_with_igtf"/>
+                        </td>
+                    </tr>
+                </div>
+            </xpath>
+        </template>
+        
+    </data>
+</odoo>

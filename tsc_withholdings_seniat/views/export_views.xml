@@ -1,0 +1,97 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_tax_withholdings_iva_export_form">
+      <field name="name">tax.withholdings.iva.export.form</field>
+      <field name="model">tsc.tax.withholdings.iva.export</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Declaration period">
+          <sheet>
+            <p>Indicate the fortnight, month and year of the IVA withholding declaration period</p>
+            <group col="3">
+              <group>
+                <field name="fortnight" />
+              </group>
+              <group>
+                <field name="month" />
+              </group>
+              <group>
+                <field name="year" />
+              </group>
+            </group>
+          </sheet>
+          <footer>
+            <button name="action_export" type="object" string="Download" class="oe_highlight" />
+            <button special="cancel" string="Cancel" />
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_tax_withholdings_islr_export_form">
+      <field name="name">tax.withholdings.islr.export.form</field>
+      <field name="model">tsc.tax.withholdings.islr.export</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Declaration period">
+          <sheet>
+            <p>Indicate the month and year of the ISLR withholding declaration period</p>
+            <group>
+              <group>
+                <field name="month" />
+              </group>
+              <group>
+                <field name="year" />
+              </group>
+            </group>
+          </sheet>
+          <footer>
+            <button
+              name="action_export"
+              type="object"
+              string="Download"
+              class="oe_highlight"
+              data-dismiss="modal" />
+            <button special="cancel" string="Cancel" />
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <record id="action_tax_withholdings_islr_export" model="ir.actions.act_window">
+      <field name="name">Tax Withholdings ISLR Export</field>
+      <field name="res_model">tsc.tax.withholdings.islr.export</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_tax_withholdings_islr_export_form" />
+      <field name="binding_type">action</field>
+      <field name="target">new</field>
+    </record>
+
+    <record id="action_tax_withholdings_iva_export" model="ir.actions.act_window">
+      <field name="name">Tax Withholdings IVA Export</field>
+      <field name="res_model">tsc.tax.withholdings.iva.export</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_tax_withholdings_iva_export_form" />
+      <field name="binding_type">action</field>
+      <field name="target">new</field>
+    </record>
+
+    <record id="action_tax_withholdings_islr_export_wizard" model="ir.actions.server">
+      <field name="name">Withholdings ISLR SENIAT</field>
+      <field name="model_id" ref="account.model_account_move" />
+      <field name="binding_model_id" ref="account.model_account_move" />
+      <field name="state">code</field>
+      <field name="code">action = records.action_tax_withholdings_export('islr')</field>
+    </record>
+
+    <record id="action_tax_withholdings_iva_export_wizard" model="ir.actions.server">
+      <field name="name">Withholdings IVA SENIAT</field>
+      <field name="model_id" ref="account.model_account_move" />
+      <field name="binding_model_id" ref="account.model_account_move" />
+      <field name="state">code</field>
+      <field name="code">action = records.action_tax_withholdings_export('iva')</field>
+    </record>
+
+  </data>
+</odoo>

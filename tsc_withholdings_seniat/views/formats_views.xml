@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="tsc_formats_for__seniat.list">
+      <field name="name">tsc_formats_for_SENIAT list</field>
+      <field name="model">tsc_formats_for__seniat.tsc_formats_for__seniat</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="tsc_formats_for__seniat.action_window">
+      <field name="name">tsc_formats_for_SENIAT window</field>
+      <field name="res_model">tsc_formats_for__seniat.tsc_formats_for__seniat</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="tsc_formats_for__seniat.action_server">
+      <field name="name">tsc_formats_for_SENIAT server</field>
+      <field name="model_id" ref="model_tsc_formats_for__seniat_tsc_formats_for__seniat"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="tsc_formats_for_SENIAT" id="tsc_formats_for__seniat.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="tsc_formats_for__seniat.menu_1" parent="tsc_formats_for__seniat.menu_root"/>
+    <menuitem name="Menu 2" id="tsc_formats_for__seniat.menu_2" parent="tsc_formats_for__seniat.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="tsc_formats_for__seniat.menu_1_list" parent="tsc_formats_for__seniat.menu_1"
+              action="tsc_formats_for__seniat.action_window"/>
+    <menuitem name="Server to list" id="tsc_formats_for__seniat" parent="tsc_formats_for__seniat.menu_2"
+              action="tsc_formats_for__seniat.action_server"/>
+-->
+  </data>
+</odoo>
