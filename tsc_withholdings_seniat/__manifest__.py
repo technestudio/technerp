@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Venezuelan Withholdings and SENIAT Formats",
+    'name': "Venezuela Retenciones",
     'summary': """
         Unified module for VAT/ISLR withholdings, SENIAT exports, and compliant report formats.
     """,
@@ -11,7 +11,11 @@
     """,
     'author': "Techne Studio IT & Consulting",
     'website': "https://technestudioit.com/",
-    'license': "Other proprietary",
+    'license': "OPL-1",
+    'price': 250.0,
+    'currency': 'USD',
+    'support': 'info@technestudioit.com',
+    'images': ['static/description/icon.png'],
     'category': 'Accounting',
     'version': '19.0.1.0.0',
     'depends': ['base', 'account', 'purchase', 'account_debit_note', 'stock', 'stock_delivery', 'account_accountant', 'account_edi'],

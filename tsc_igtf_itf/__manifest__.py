@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Venezuelan IGTF and ITF Banking",
+    'name': "Venezuela IGTF & ITF",
     'summary': """
         Unified module for IGTF and ITF transactions and accounting.
     """,
@@ -13,7 +13,11 @@
     'website': "https://technestudioit.com/",
     'category': 'Accounting',
     'version': '19.0.1.0.0',
-    'license': 'Other proprietary',
+    'license': 'OPL-1',
+    'price': 250.0,
+    'currency': 'USD',
+    'support': 'info@technestudioit.com',
+    'images': ['static/description/icon.png'],
     'depends': ['base', 'account'],
     'data': [
         'views/tsc_res_currency_views.xml',
