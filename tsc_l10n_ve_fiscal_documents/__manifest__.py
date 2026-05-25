@@ -1,5 +1,5 @@
 {
-    'name': 'Venezuela - Fiscal Documents Engine',
+    'name': 'Venezuela - Motor de documentos fiscales SENIAT',
     'version': '19.0.1.0.0',
     'category': 'Accounting/Localizations',
     'summary': 'Motor de Documentos Fiscales y Control de Hash (Providencia SNAT/2024/000121)',

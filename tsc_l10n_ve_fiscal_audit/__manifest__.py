@@ -1,5 +1,5 @@
 {
-    'name': 'Venezuela - Fiscal Audit Log',
+    'name': 'Venezuela - Bitácora de auditoría fiscal SENIAT',
     'version': '19.0.1.0.0',
     'category': 'Accounting/Localizations',
     'summary': 'Bitácora y Auditoría de Eventos Fiscales (Providencia SNAT/2024/000121)',

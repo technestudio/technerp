@@ -2,12 +2,12 @@
 {
     'name': "Venezuela IGTF & ITF",
     'summary': """
-        Unified module for IGTF and ITF transactions and accounting.
+        Módulo unificado para transacciones de IGTF e ITF y contabilidad.
     """,
     'description': """
-        - Register payments including the IGTF.
-        - Generate accounting entries for ITF collections in banking transactions.
-        - Connects IGTF entries in bank journals with national currency for ITF.
+        - Registrar pagos incluyendo el IGTF.
+        - Generar asientos contables para cobro de ITF en transacciones bancarias.
+        - Conecta las entradas de IGTF en diarios bancarios con moneda nacional para ITF.
     """,
     'author': "Techne Studio IT & Consulting",
     'website': "https://technestudioit.com/",

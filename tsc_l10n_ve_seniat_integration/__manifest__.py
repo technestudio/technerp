@@ -1,5 +1,5 @@
 {
-    'name': 'Venezuela - SENIAT Integration & Transmission',
+    'name': 'Venezuela - Integración y transmisión de datos SENIAT',
     'version': '19.0.1.0.0',
     'category': 'Accounting/Localizations',
     'summary': 'Cola de transmisión y API Adapter para facturación electrónica (Providencia SNAT/2024/000121)',

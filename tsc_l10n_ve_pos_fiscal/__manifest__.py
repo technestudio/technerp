@@ -1,5 +1,5 @@
 {
-    'name': 'Venezuela - POS Fiscal',
+    'name': 'Venezuela - Punto de venta (POS) fiscal SENIAT',
     'version': '19.0.1.0.0',
     'category': 'Point of Sale/Localizations',
     'summary': 'Extensión Fiscal para Punto de Venta (Providencia SNAT/2024/000121)',

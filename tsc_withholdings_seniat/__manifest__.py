@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Venezuela Retenciones",
+    'name': "Venezuela Retenciones SENIAT",
     'summary': """
-        Unified module for VAT/ISLR withholdings, SENIAT exports, and compliant report formats.
+        Módulo unificado para retenciones de IVA e ISLR, exportaciones SENIAT y formatos de informes conformes.
     """,
     'description': """
-        - Configure and generate VAT and ISLR withholdings.
-        - Generate ISLR and VAT withholding files to be sent to SENIAT.
-        - Modifies reports of Customer Invoices, Credit Notes, Debit Notes and Dispatch Guides for SENIAT compliance.
+        - Configurar y generar retenciones de IVA e ISLR.
+        - Generar archivos de retención de ISLR e IVA para ser enviados al SENIAT.
+        - Modifica los informes de facturas de clientes, notas de crédito, notas de débito y guías de remisión para cumplir con el SENIAT.
     """,
     'author': "Techne Studio IT & Consulting",
     'website': "https://technestudioit.com/",

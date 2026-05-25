@@ -1,5 +1,5 @@
 {
-    'name': 'Venezuela - Fiscal Provider Registry',
+    'name': 'Venezuela - Registro de proveedores fiscales SENIAT',
     'version': '19.0.1.0.0',
     'category': 'Accounting/Localizations',
     'summary': 'Gestión Avanzada de Expedientes Técnicos y PACs (Providencia SNAT/2024/000121)',
