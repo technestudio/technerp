@@ -12,6 +12,6 @@
                   name="Configuración Fiscal" 
                   parent="menu_l10n_ve_fiscal_root" 
                   sequence="10"
-                  groups="tsc_l10n_ve_fiscal_compliance.group_l10n_ve_fiscal_administrator"/>
+                  groups="tsc_l10n_ve_fiscal_compliance.group_tsc_l10n_ve_fiscal_administrator"/>
     </data>
 </odoo>

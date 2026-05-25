@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="account.view_move_form"/>
         <field name="arch" type="xml">
             <xpath expr="//header" position="inside">
-                <button name="verify_fiscal_integrity" string="Verificar Integridad Fiscal" type="object" groups="tsc_l10n_ve_fiscal_compliance.group_l10n_ve_fiscal_manager"/>
+                <button name="verify_fiscal_integrity" string="Verificar Integridad Fiscal" type="object" groups="tsc_l10n_ve_fiscal_compliance.group_tsc_l10n_ve_fiscal_manager"/>
             </xpath>
             <xpath expr="//notebook" position="inside">
                 <page string="Fiscal Venezuela" name="fiscal_venezuela">
