@@ -55,12 +55,12 @@
         <field name="name">fiscal.compliance.config.tree</field>
         <field name="model">fiscal.compliance.config</field>
         <field name="arch" type="xml">
-            <tree string="Configuraciones Fiscales">
+            <list string="Configuraciones Fiscales">
                 <field name="company_id"/>
                 <field name="environment"/>
                 <field name="fiscal_mode_enabled" widget="boolean_toggle"/>
                 <field name="current_system_version_id"/>
-            </tree>
+            </list>
         </field>
     </record>
 

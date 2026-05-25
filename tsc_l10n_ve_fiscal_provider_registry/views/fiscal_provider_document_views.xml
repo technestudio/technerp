@@ -4,13 +4,13 @@
         <field name="name">fiscal.provider.document.tree</field>
         <field name="model">fiscal.provider.document</field>
         <field name="arch" type="xml">
-            <tree string="Expedientes Técnicos">
+            <list string="Expedientes Técnicos">
                 <field name="name"/>
                 <field name="provider_id"/>
                 <field name="document_type"/>
                 <field name="date"/>
                 <field name="expiry_date" decoration-danger="expiry_date &lt; current_date"/>
-            </tree>
+            </list>
         </field>
     </record>
 

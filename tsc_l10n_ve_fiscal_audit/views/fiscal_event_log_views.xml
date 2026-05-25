@@ -4,14 +4,14 @@
         <field name="name">fiscal.event.log.tree</field>
         <field name="model">fiscal.event.log</field>
         <field name="arch" type="xml">
-            <tree string="Bitácora de Eventos Fiscales" create="false" edit="false" delete="false">
+            <list string="Bitácora de Eventos Fiscales" create="false" edit="false" delete="false">
                 <field name="create_date" string="Fecha y Hora"/>
                 <field name="user_id"/>
                 <field name="event_type"/>
                 <field name="model_name"/>
                 <field name="description"/>
                 <field name="company_id" groups="base.group_multi_company"/>
-            </tree>
+            </list>
         </field>
     </record>
 

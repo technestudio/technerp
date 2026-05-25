@@ -4,7 +4,7 @@
         <field name="name">fiscal.transmission.queue.tree</field>
         <field name="model">fiscal.transmission.queue</field>
         <field name="arch" type="xml">
-            <tree string="Cola de Transmisión Fiscal" decoration-danger="state in ('failed', 'rejected')" decoration-success="state == 'accepted'" decoration-info="state == 'pending'">
+            <list string="Cola de Transmisión Fiscal" decoration-danger="state in ('failed', 'rejected')" decoration-success="state == 'accepted'" decoration-info="state == 'pending'">
                 <field name="name"/>
                 <field name="move_id"/>
                 <field name="document_type"/>
@@ -12,7 +12,7 @@
                 <field name="attempt_count"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="create_date"/>
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -50,12 +50,12 @@
                         </page>
                         <page string="Respuestas">
                             <field name="response_ids">
-                                <tree>
+                                <list>
                                     <field name="received_at"/>
                                     <field name="response_code"/>
                                     <field name="response_message"/>
                                     <field name="accepted"/>
-                                </tree>
+                                </list>
                             </field>
                         </page>
                         <page string="Error Log" invisible="error_message == False">
