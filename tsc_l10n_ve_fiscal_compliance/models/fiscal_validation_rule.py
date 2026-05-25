@@ -6,7 +6,7 @@ class FiscalValidationRule(models.Model):
     
     name = fields.Char(string='Rule Name', required=True)
     active = fields.Boolean(default=True)
-    model_id = fields.Many2one('ir.model', string='Model', required=True)
+    model_id = fields.Many2one('ir.model', string='Model', required=True, ondelete='cascade')
     condition_python = fields.Text(string='Condition (Python)')
     error_message = fields.Char(string='Error Message', required=True)
     severity = fields.Selection([
