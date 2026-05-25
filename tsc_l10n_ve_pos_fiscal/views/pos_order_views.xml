@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_order_form_inherit_fiscal" model="ir.ui.view">
+        <field name="name">pos.order.form.inherit.fiscal</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Fiscal Venezuela">
+                    <group>
+                        <group>
+                            <field name="fiscal_document_number"/>
+                            <field name="fiscal_status"/>
+                            <field name="fiscal_locked"/>
+                        </group>
+                        <group>
+                            <field name="fiscal_hash"/>
+                            <field name="fiscal_transmission_state"/>
+                            <field name="fiscal_issued_at"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fiscal_provider_registry_form_inherit_docs" model="ir.ui.view">
+        <field name="name">fiscal.provider.registry.form.inherit.docs</field>
+        <field name="model">fiscal.provider.registry</field>
+        <field name="inherit_id" ref="tsc_l10n_ve_fiscal_compliance.view_fiscal_provider_registry_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <notebook>
+                    <page string="Expediente Técnico y Documentos" name="technical_documents">
+                        <field name="document_ids" context="{'default_provider_id': id}"/>
+                    </page>
+                    <page string="Integración Técnica" name="technical_integration">
+                        <group>
+                            <group string="Contrato">
+                                <field name="contract_start_date"/>
+                                <field name="contract_end_date"/>
+                            </group>
+                            <group string="API y Soporte">
+                                <field name="support_email"/>
+                                <field name="api_endpoint_url"/>
+                                <field name="api_version"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+</odoo>

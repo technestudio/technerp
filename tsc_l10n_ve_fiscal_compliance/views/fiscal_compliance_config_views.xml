@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fiscal_compliance_config_form" model="ir.ui.view">
+        <field name="name">fiscal.compliance.config.form</field>
+        <field name="model">fiscal.compliance.config</field>
+        <field name="arch" type="xml">
+            <form string="Configuración de Cumplimiento Fiscal">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Configuración Fiscal SENIAT</h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="fiscal_mode_enabled" widget="boolean_toggle"/>
+                            <field name="environment"/>
+                        </group>
+                        <group>
+                            <field name="seniat_rif"/>
+                            <field name="seniat_authorization_number"/>
+                            <field name="seniat_authorization_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Sistema y Proveedor">
+                            <group>
+                                <field name="provider_id"/>
+                                <field name="current_system_version_id"/>
+                            </group>
+                        </page>
+                        <page string="Políticas y Controles">
+                            <group>
+                                <field name="fiscal_document_lock_policy"/>
+                                <field name="require_transmission"/>
+                                <field name="transmission_deadline_hours" invisible="not require_transmission"/>
+                                <field name="allow_offline_mode"/>
+                            </group>
+                            <group>
+                                <field name="audit_enabled"/>
+                                <field name="hash_enabled"/>
+                                <field name="qr_enabled"/>
+                            </group>
+                        </page>
+                        <page string="Notas">
+                            <field name="notes" placeholder="Notas internas..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fiscal_compliance_config_tree" model="ir.ui.view">
+        <field name="name">fiscal.compliance.config.tree</field>
+        <field name="model">fiscal.compliance.config</field>
+        <field name="arch" type="xml">
+            <tree string="Configuraciones Fiscales">
+                <field name="company_id"/>
+                <field name="environment"/>
+                <field name="fiscal_mode_enabled" widget="boolean_toggle"/>
+                <field name="current_system_version_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_fiscal_compliance_config" model="ir.actions.act_window">
+        <field name="name">Configuración Fiscal SENIAT</field>
+        <field name="res_model">fiscal.compliance.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_fiscal_compliance_config_action" 
+              name="Parámetros Fiscales" 
+              parent="menu_l10n_ve_fiscal_config" 
+              action="action_fiscal_compliance_config" 
+              sequence="1"/>
+</odoo>

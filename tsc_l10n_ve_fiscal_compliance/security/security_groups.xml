@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="module_category_l10n_ve_fiscal" model="ir.module.category">
+            <field name="name">Fiscal Venezuela / Cumplimiento SENIAT</field>
+            <field name="description">Ayuda a administrar los niveles de acceso para el cumplimiento fiscal de Venezuela.</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Fiscal User -->
+        <record id="group_l10n_ve_fiscal_user" model="res.groups">
+            <field name="name">Fiscal User</field>
+            <field name="category_id" ref="module_category_l10n_ve_fiscal"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">Puede consultar documentos fiscales.</field>
+        </record>
+
+        <!-- Fiscal Manager -->
+        <record id="group_l10n_ve_fiscal_manager" model="res.groups">
+            <field name="name">Fiscal Manager</field>
+            <field name="category_id" ref="module_category_l10n_ve_fiscal"/>
+            <field name="implied_ids" eval="[(4, ref('group_l10n_ve_fiscal_user'))]"/>
+            <field name="comment">Puede gestionar documentos, revisar transmisiones y exportaciones.</field>
+        </record>
+
+        <!-- Fiscal Auditor -->
+        <record id="group_tsc_l10n_ve_fiscal_auditor" model="res.groups">
+            <field name="name">Fiscal Auditor</field>
+            <field name="category_id" ref="module_category_l10n_ve_fiscal"/>
+            <field name="implied_ids" eval="[(4, ref('group_l10n_ve_fiscal_user'))]"/>
+            <field name="comment">Puede consultar logs, documentos, exportaciones y reportes. No puede modificar.</field>
+        </record>
+
+        <!-- Fiscal Administrator -->
+        <record id="group_l10n_ve_fiscal_administrator" model="res.groups">
+            <field name="name">Fiscal Administrator</field>
+            <field name="category_id" ref="module_category_l10n_ve_fiscal"/>
+            <field name="implied_ids" eval="[(4, ref('group_l10n_ve_fiscal_manager'))]"/>
+            <field name="comment">Puede configurar parámetros fiscales, proveedor, versiones y secuencias.</field>
+        </record>
+    </data>
+</odoo>

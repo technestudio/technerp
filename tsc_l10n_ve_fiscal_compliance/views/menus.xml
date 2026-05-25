@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Main Menu -->
+        <menuitem id="menu_l10n_ve_fiscal_root" 
+                  name="Fiscal Venezuela / Cumplimiento SENIAT" 
+                  web_icon="account,static/description/icon.png"
+                  sequence="100"/>
+
+        <!-- Configuration Menu -->
+        <menuitem id="menu_l10n_ve_fiscal_config" 
+                  name="Configuración Fiscal" 
+                  parent="menu_l10n_ve_fiscal_root" 
+                  sequence="10"
+                  groups="tsc_l10n_ve_fiscal_compliance.group_l10n_ve_fiscal_administrator"/>
+    </data>
+</odoo>

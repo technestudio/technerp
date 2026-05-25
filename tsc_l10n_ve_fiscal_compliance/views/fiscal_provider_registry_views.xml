@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fiscal_provider_registry_form" model="ir.ui.view">
+        <field name="name">fiscal.provider.registry.form</field>
+        <field name="model">fiscal.provider.registry</field>
+        <field name="arch" type="xml">
+            <form string="Proveedor del Sistema">
+                <header>
+                    <field name="authorization_status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="Nombre Comercial del Proveedor"/></h1>
+                    </div>
+                    <group>
+                        <group string="Datos de Identificación">
+                            <field name="rif"/>
+                            <field name="legal_name"/>
+                        </group>
+                        <group string="Contacto">
+                            <field name="contact_name"/>
+                            <field name="contact_email"/>
+                            <field name="contact_phone"/>
+                        </group>
+                    </group>
+                    <group string="Autorización SENIAT">
+                        <group>
+                            <field name="authorization_number"/>
+                        </group>
+                        <group>
+                            <field name="authorization_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_fiscal_provider_registry" model="ir.actions.act_window">
+        <field name="name">Proveedor del Sistema</field>
+        <field name="res_model">fiscal.provider.registry</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_fiscal_provider_registry_action" 
+              name="Proveedor del Sistema" 
+              parent="menu_l10n_ve_fiscal_config" 
+              action="action_fiscal_provider_registry" 
+              sequence="2"/>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fiscal_provider_document_tree" model="ir.ui.view">
+        <field name="name">fiscal.provider.document.tree</field>
+        <field name="model">fiscal.provider.document</field>
+        <field name="arch" type="xml">
+            <tree string="Expedientes Técnicos">
+                <field name="name"/>
+                <field name="provider_id"/>
+                <field name="document_type"/>
+                <field name="date"/>
+                <field name="expiry_date" decoration-danger="expiry_date &lt; current_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fiscal_provider_document_form" model="ir.ui.view">
+        <field name="name">fiscal.provider.document.form</field>
+        <field name="model">fiscal.provider.document</field>
+        <field name="arch" type="xml">
+            <form string="Documento Técnico">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="provider_id"/>
+                            <field name="document_type"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="expiry_date"/>
+                            <field name="file" filename="file_name"/>
+                            <field name="file_name" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Notas">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

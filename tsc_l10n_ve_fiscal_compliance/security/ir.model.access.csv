@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fiscal_compliance_config_admin,fiscal.compliance.config.admin,model_fiscal_compliance_config,group_l10n_ve_fiscal_administrator,1,1,1,0
+access_fiscal_compliance_config_user,fiscal.compliance.config.user,model_fiscal_compliance_config,group_l10n_ve_fiscal_user,1,0,0,0
+access_fiscal_provider_registry_admin,fiscal.provider.registry.admin,model_fiscal_provider_registry,group_l10n_ve_fiscal_administrator,1,1,1,0
+access_fiscal_provider_registry_user,fiscal.provider.registry.user,model_fiscal_provider_registry,group_l10n_ve_fiscal_user,1,0,0,0
+access_fiscal_system_version_admin,fiscal.system.version.admin,model_fiscal_system_version,group_l10n_ve_fiscal_administrator,1,1,1,0
+access_fiscal_system_version_user,fiscal.system.version.user,model_fiscal_system_version,group_l10n_ve_fiscal_user,1,0,0,0
+access_fiscal_validation_rule_admin,fiscal.validation.rule.admin,model_fiscal_validation_rule,group_l10n_ve_fiscal_administrator,1,1,1,0
